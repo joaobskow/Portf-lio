@@ -1,0 +1,456 @@
+/* --- ESTILOS GERAIS --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* --- HEADER E NAVEGAÇÃO --- */
+header {
+    background-color: #1e1e1e;
+    padding: 0.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #868686;
+}
+
+/* --- SEÇÃO DE APRESENTAÇÃO (INICIO) --- */
+#inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 2rem;
+    gap: 2.5rem;
+}
+
+#inicio img {
+    width: 350px;
+    height: 350px;
+    border-radius: 35%;
+    object-fit: cover;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+#inicio .texto_principal {
+    text-align: left;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+#inicio h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #aaaaaa;
+    margin-bottom: 0.4rem;
+}
+
+#inicio h2 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    color: #ffffff;
+}
+
+#inicio p {
+    font-size: 1.2rem;
+    color: #bbbbbb;
+    margin-top: 0.5rem;
+}
+
+/* --- BOTÕES DE REDES SOCIAIS --- */
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.2rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #aaaaaa;
+    background: transparent;
+    border: 1px solid transparent;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    transition: all 0.3s ease-in-out;
+}
+
+.social-btn:hover {
+    transform: translateY(-8px);
+    background: #121213;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+}
+
+.social-btn svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+/* --- ESTILO PADRÃO PARA SEÇÕES DE CONTEÚDO --- */
+.content-section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 15px auto; 
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2.8rem;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.content-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background-color: #e0e0e0;
+    transition: width 0.7s ease-in-out;
+}
+
+.content-section h2.in-view::after {
+    width: 100%;
+}
+
+#sobre p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #cccccc;
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+/* --- CARROSSEL DE TECNOLOGIAS --- */
+.tech-carousel {
+    max-width: 1000px;
+    margin: 70px auto;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    padding: 15px 0;
+}
+
+.carousel-scroller {
+    display: flex;
+    width: fit-content;
+    animation: scroll 25s linear infinite;
+}
+
+.icon-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 25px;
+    transition: transform 0.3s ease-out;
+    position: relative;
+}
+
+.icon-item:hover {
+    transform: translateY(-10px);
+    z-index: 10;
+}
+
+.icon-item img {
+    height: 50px;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* --- SEÇÃO DE PROJETOS --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    overflow: hidden;
+    height: 200px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-content h3 {
+    font-size: 1.4rem;
+    color: #e0e0e0;
+    margin: 0 0 10px 0;
+}
+
+.project-content p {
+    font-size: 0.95rem;
+    text-align: justify;
+    color: #bbbbbb;    
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.project-tech span {
+    background-color: #c4c4c4; 
+    color: #333; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.project-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: auto;
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.project-btn:hover {
+    background-color: #555;
+}
+
+.project-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #1e1e1e;
+    color: #aaaaaa;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 40px; 
+}
+
+.footer-credit {
+    margin: 0 0 40px 0;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    transform: translateY(-5px);
+}
+
+.footer-links svg {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+}
+
+/* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
+
+/* Para tablets e telas menores (até 992px) */
+@media (max-width: 992px) {
+    /* Passa a grade de projetos para 2 colunas */
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Diminui o tamanho da foto e do texto na apresentação */
+    #inicio {
+        gap: 2rem;
+        padding: 2rem 1rem;
+    }
+    #inicio img {
+        width: 300px;
+        height: 300px;
+    }
+    #inicio h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Para celulares (até 768px) */
+@media (max-width: 768px) {
+    /* --- Header --- */
+    header {
+        flex-direction: column; /* Coloca o logo e a navegação um sobre o outro */
+        padding: 1rem;
+        gap: 10px;
+    }
+    nav ul {
+        justify-content: center;
+        width: 100%;
+    }
+    nav li {
+        margin: 0 5px; /* Diminui o espaçamento entre os links */
+    }
+    nav a {
+        font-size: 1rem;
+        padding: 8px 10px;
+    }
+
+    /* --- Seção de Apresentação --- */
+    #inicio {
+        flex-direction: column; /* Coloca a foto em cima do texto */
+        text-align: center;
+        min-height: auto; /* Altura automática */
+        padding: 40px 1rem;
+    }
+    #inicio .texto_principal {
+        text-align: center;
+        /* Alinha os botões sociais no centro */
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    #inicio img {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* --- Estilos Gerais para Seções --- */
+    .content-section {
+        padding: 40px 20px;
+        margin: 0 auto; /* Remove a margem vertical extra */
+    }
+    .content-section h2 {
+        font-size: 2.2rem;
+    }
+
+    /* --- Seção de Projetos --- */
+    .project-grid {
+        grid-template-columns: 1fr; /* Passa para 1 coluna */
+    }
+}
+
+/* --- ANIMAÇÃO --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
